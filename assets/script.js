@@ -38,4 +38,33 @@ var timeBlockElements = $(".textarea");
 
     }
 
+document.getElementById("9am").addEventListener("click", function(event) {
+    event.preventDefault();
+    var hourNineText = timeBlockNine.innerHTML;
+    if (timeBlockNine.innerHTML === "") {
+        alert("Ah ah ah, you have to put something down so your boss thinks you're working")
+
+    }
+    else {
+        var blockNineTask = {
+            hour: "9 am",
+            text: hourNineText,
+        }
+        localStorage.setItem("blockNineTask", JSON.stringify(blockNineTask))
+    }
+})
+
+var blockNineTask = localStorage.getItem("blockNineTask");
+
+if(blockNineTask) {
+    var savedTask = JSON.parse(localStorage.getItem("blockNineTask"));
+    timeBlockNine.innerText = savedTask.text;
+}
+else {
+
+}
+
+
+
+
     
